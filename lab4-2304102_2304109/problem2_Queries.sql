@@ -7,7 +7,15 @@ WHERE b.title LIKE '%murder%'
   AND b.price BETWEEN 10 AND 20
   AND b.category_id = 2
 ORDER BY b.price ASC, b.title;
-
+-- F2.1 (bonus)  Same search with a prepared statement (placeholders)
+PREPARE search_books FROM
+  'SELECT b.book_id, b.title, b.price, b.publish_year, c.name AS category
+   FROM book b JOIN category c ON b.category_id = c.category_id
+   WHERE b.title LIKE ? AND b.price BETWEEN ? AND ? AND b.category_id = ?
+   ORDER BY b.price ASC, b.title';
+SET @kw = '%murder%', @min = 10, @max = 20, @cat = 2;
+EXECUTE search_books USING @kw, @min, @max, @cat;
+DEALLOCATE PREPARE search_books;
 -- F2.2  Catalogue: author, publisher and category names instead of ids
 SELECT b.book_id, b.title, b.price, b.publish_year,
        a.name AS author, p.name AS publisher, c.name AS category
