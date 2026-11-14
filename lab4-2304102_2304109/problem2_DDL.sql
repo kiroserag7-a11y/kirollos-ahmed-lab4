@@ -15,7 +15,6 @@ CREATE TABLE publisher (
     country      VARCHAR(50),
     PRIMARY KEY (publisher_id)
 );
-
 CREATE TABLE category (
     category_id INT         NOT NULL AUTO_INCREMENT,
     name        VARCHAR(50) NOT NULL,
