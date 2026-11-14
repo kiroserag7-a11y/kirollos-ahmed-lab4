@@ -3,10 +3,10 @@
 ## Team
 | Name | ID | Did what |
 |------|----|----------|
-| Kirollose Serag Mouner | 2304102 | `problem2_DDL.sql`, `problem2_DML.sql`, SQL queries (`problem2_Queries.sql`) |
-| Ahmed Ramdan Mohamed | 2304109 | website pages F2.1-F2.6, README |
+| Kirollose Serag Mouner ellyas.| 2304102 | `problem2_DDL.sql`, `problem2_DML.sql`, SQL queries (`problem2_Queries.sql`) |
+| Ahmed Ramdan Mohamed kahrout. | 2304109 | website pages F2.1-F2.6, README |
 
-## Contents
+## Contents.
 | File | What it is |
 |------|------------|
 | `problem2_DDL.sql` | Database `library`: 6 tables (author, publisher, category, book, member, loan), primary keys, foreign keys, `ON DELETE CASCADE` (author -> book, book -> loan) |
