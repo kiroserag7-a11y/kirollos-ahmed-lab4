@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Log in{% endblock %}
+{% block content %}
+<section class="card narrow">
+  <h1>Log in</h1>
+  <form method="post" action="{{ url_for('login') }}" data-validate novalidate>
+    <ul class="errors" role="alert">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>
+    <label>Email
+      <input type="email" name="email" value="{{ form.get('email', '') }}" maxlength="255" data-required="Email is required">
+    </label>
+    <label>Password
+      <input type="password" name="password" data-required="Password is required">
+    </label>
+    <button class="btn primary block">Log in</button>
+  </form>
+  <p class="muted">No account yet? <a href="{{ url_for('register') }}">Register</a></p>
+</section>
+{% endblock %}

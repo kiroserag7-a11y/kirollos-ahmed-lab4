@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}To-Do{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('index') }}">✔ To-Do</a>
+    {% if session.user_id %}
+    <nav class="nav">
+      <a href="{{ url_for('todos') }}">To-Do</a>
+      <a href="{{ url_for('search') }}">Search</a>
+      <a href="{{ url_for('catalogue') }}">Catalogue</a>
+      <a href="{{ url_for('reports') }}">Reports</a>
+      <a href="{{ url_for('loans') }}">Loans</a>
+      <a href="{{ url_for('top') }}">Most borrowed</a>
+      <a href="{{ url_for('authors_books') }}">Authors</a>
+    </nav>
+    <form method="post" action="{{ url_for('logout') }}" class="userbox">
+      <span>Hi, {{ session.name }}</span>
+      <button class="btn small">Log out</button>
+    </form>
+    {% endif %}
+  </header>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

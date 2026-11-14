@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% from "_table.html" import show %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+{% for s in sections %}
+<section class="card{% if not loop.first %} gap{% endif %}">
+  <h1>{{ s.heading }}</h1>
+  {{ show(s) }}
+</section>
+{% endfor %}
+{% endblock %}

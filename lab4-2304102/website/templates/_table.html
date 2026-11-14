@@ -1,0 +1,14 @@
+{% macro show(s) %}
+<div class="table-wrap">
+  <table>
+    <thead><tr>{% for key, label in s.columns %}<th>{{ label }}</th>{% endfor %}</tr></thead>
+    <tbody>
+    {% for r in s.rows %}
+      <tr>{% for key, label in s.columns %}<td>{{ '' if r[key] is none else r[key] }}</td>{% endfor %}</tr>
+    {% else %}
+      <tr><td colspan="{{ s.columns|length }}" class="empty">{{ s.empty }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endmacro %}
